@@ -24,7 +24,7 @@ const locations: Location[] = [
   {
     id: 1,
     name: 'Greenhills',
-    units: 8,
+    units: 16,
     image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1773&q=80',
     properties: [
       {
@@ -52,7 +52,7 @@ const locations: Location[] = [
   {
     id: 2,
     name: 'Robinpark',
-    units: 12,
+    units: 4,
     image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1773&q=80',
     properties: [
       {
@@ -127,11 +127,11 @@ const locations: Location[] = [
   },
   {
     id: 4,
-    name: 'Northriding',
-    units: 0,
-    soldOut: true,
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1773&q=80',
-    properties: [
+  name: 'Northriding',
+  units: 1,
+  soldOut: false,
+  image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?...',
+  properties: [
       {
         id: 401,
         title: 'Ngonyama Lifestyle Estate',

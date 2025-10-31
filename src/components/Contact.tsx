@@ -299,7 +299,7 @@ const Contact: React.FC = () => {
                   <div className="ml-4">
                     <h4 className="font-semibold mb-2">Visit Us:</h4>
                     <p>Ekasi Noble Properties Office</p>
-                    <p>459 Fleetwood Avenue, North Riding AH, Roodepoort 2169</p>
+                    <p>RANDFONTEIN MIDDELVEI 255-IQ</p>
                     <p>South Africa</p>
                   </div>
                 </div>

@@ -35,7 +35,7 @@ const faqItems = [
   {
     id: 7,
     question: "When will the properties be ready for occupation?",
-    answer: "Development duration varies from 3-12 months, with occupation expected in 2024/5 for most of our current projects."
+    answer: "Development duration varies from 6-12 months, with occupation expected in 2025/6 for most of our current projects."
   },
   {
     id: 8,

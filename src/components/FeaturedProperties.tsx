@@ -24,16 +24,16 @@ const properties = [
     price: 'R450,000',
     type: 'sale',
     image: '/ngonyama.jpg',
-    
+    beds: '2 - 4',
     area: '250m²',
     description:
-      'Exclusive investment opportunity in our upcoming private estate. Stand prices start at R450,000. Choose from different plans of 3-5 bedroom houses in an upmarket estate.',
+      'Beautiful property available for sale or rent-to-own. Deposit R299,000 with monthly repayments of R7,000.',
   },
   {
     id: 2,
     title: 'Nala Estate',
     location: 'Randfontein Greenhills',
-    price: 'R849,000',
+    price: 'R950,000',
     type: ['rent-to-own', 'sale'],
     image: '/bhubesi.jpg',
     beds: 3,

@@ -17,7 +17,7 @@ const Projects: React.FC<ProjectsProps> = ({ scrollToContact }) => {
       title: 'Thaba View Lodge',
       subtitle: 'Boutique Lodge',
       location: 'Hartbeespoort',
-      image: '/bhubesi.jpg',
+      image: '/thaba1.jpeg',
       description: 'A vibrant home to wild wonders and adventurous souls. Own a 500m² piece of paradise in a game lodge.',
       color: 'from-green-700 to-green-900'
     },
@@ -26,7 +26,7 @@ const Projects: React.FC<ProjectsProps> = ({ scrollToContact }) => {
       title: 'Greenlands Lifestyle Private Estate',
       subtitle: 'Luxury Living',
       location: 'Randfontein Middelvei 255iQ',
-      image: '/exterior1.jpg',
+      image: '/greenland1.jpeg',
       description: 'Where luxury meets security in the perfect harmony of a private oasis. Affordable housing solutions without compromising on luxury.',
       color: 'from-blue-700 to-blue-900',
       website: 'https://www.morekeyhome.com'
@@ -116,38 +116,37 @@ const Projects: React.FC<ProjectsProps> = ({ scrollToContact }) => {
       </section>
 
       <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 overflow-y-auto"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedProject(null)}
-          >
-            <motion.div
-              className="min-h-screen py-8 px-4"
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 50, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative max-w-7xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden">
-                <button
-                  onClick={() => setSelectedProject(null)}
-                  className="absolute top-4 right-4 z-10 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full p-3 shadow-lg transition-all hover:scale-110"
-                >
-                  <X size={24} className="text-gray-700" />
-                </button>
+  {selectedProject && (
+    <motion.div
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-start justify-center p-4 pt-24" // offset from top
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={() => setSelectedProject(null)}
+    >
+      <motion.div
+        className="relative w-full max-w-7xl max-h-[calc(100vh-6rem)] bg-white rounded-3xl shadow-2xl overflow-hidden"
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 50, opacity: 0 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={() => setSelectedProject(null)}
+          className="absolute top-4 right-4 z-50 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full p-3 shadow-lg transition-all hover:scale-110"
+        >
+          <X size={24} className="text-gray-700" />
+        </button>
 
-                <div className="overflow-y-auto max-h-[90vh]">
-                  {selectedProject === 'thaba-view' && <ThabaViewLodge scrollToContact={scrollToContact} />}
-                  {selectedProject === 'greenlands' && <GreenlandsEstate scrollToContact={scrollToContact} />}
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        <div className="overflow-y-auto max-h-[calc(100vh-8rem)]">
+          {selectedProject === 'thaba-view' && <ThabaViewLodge scrollToContact={scrollToContact} />}
+          {selectedProject === 'greenlands' && <GreenlandsEstate scrollToContact={scrollToContact} />}
+        </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
     </>
   );
 };

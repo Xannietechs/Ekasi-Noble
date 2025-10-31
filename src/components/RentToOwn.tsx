@@ -122,7 +122,7 @@ const RentToOwn: React.FC<RentToOwnProps> = ({ scrollToContact }) => {
           </div>
           
           <div className="text-center text-white">
-            <p className="font-semibold">Development Duration: 3 - 12 Months | Occupation in 2024/5</p>
+            <p className="font-semibold">Development Duration: 6 - 12 Months | Occupation in 2025/6</p>
           </div>
           
           <div className="mt-8 text-center">

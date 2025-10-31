@@ -6,19 +6,19 @@ const teamMembers = [
     id: 1,
     name: 'SIYABONGA MAKHAMBA',
     position: 'Sales Person',
-    experience: '6 years of experience',
+    experience: '7 years of experience',
     description: 'An expert in finding the perfect property for his clients. His dedication to customer satisfaction and exceptional communication skills make him an asset to our team.',
     email: 'siyabonga@ekasinobleproperties.com',
-    image: '/siyabonga.jpg'
+    image: '/siyabonga.jpeg'
   },
   {
     id: 3,
     name: 'MAPASEKA MOJAKI',
     position: 'Rental Specialist',
-    experience: '5 years of experience',
+    experience: '6 years of experience',
     description: 'Mapaseka specializes in helping blacklisted clients secure properties. With her expertise in negotiation and commitment to finding the best deals, she is a valuable member of our team.',
     email: 'mapaseka@ekasinobleproperties.com',
-    image: '/mapaseka.jpg'
+    image: '/mapaseka.jpeg'
   }
 ];
 

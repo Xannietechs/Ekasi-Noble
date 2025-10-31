@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Home, Trees, BadgeDollarSign, Building2, Palmtree } from 'lucide-react';
+import { MapPin, Home, Trees, BadgeDollarSign, Building2, Palmtree, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface ThabaViewLodgeProps {
   scrollToContact: () => void;
@@ -34,7 +34,29 @@ const whyUsPoints = [
   }
 ];
 
+const projectImages = [
+  '/thaba1.jpeg',
+  '/thaba2.jpeg',
+  '/thaba3.jpeg',
+  '/thaba4.jpeg',
+  '/thaba5.jpeg'
+];
+
 const ThabaViewLodge: React.FC<ThabaViewLodgeProps> = ({ scrollToContact }) => {
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+
+  const handlePrevImage = () => {
+    if (selectedImage !== null) {
+      setSelectedImage((selectedImage - 1 + projectImages.length) % projectImages.length);
+    }
+  };
+
+  const handleNextImage = () => {
+    if (selectedImage !== null) {
+      setSelectedImage((selectedImage + 1) % projectImages.length);
+    }
+  };
+
   return (
     <section id="thaba-view" className="py-20 bg-gradient-to-b from-green-50 to-white">
       <div className="container mx-auto px-4">
@@ -65,6 +87,30 @@ const ThabaViewLodge: React.FC<ThabaViewLodgeProps> = ({ scrollToContact }) => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Project Gallery</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
+            {projectImages.map((image, index) => (
+              <motion.div
+                key={index}
+                className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group"
+                whileHover={{ scale: 1.05 }}
+                onClick={() => setSelectedImage(index)}
+              >
+                <img
+                  src={image}
+                  alt={`Thaba View ${index + 1}`}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                  <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold">
+                    View
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
           <h2 className="text-3xl font-bold text-gray-900 mb-6">About Thaba View</h2>
           <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
             <p>
@@ -238,6 +284,66 @@ const ThabaViewLodge: React.FC<ThabaViewLodgeProps> = ({ scrollToContact }) => {
           </motion.button>
         </motion.div>
       </div>
+
+      {selectedImage !== null && (
+  <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-start justify-center p-4 pt-24">
+    <div className="relative max-w-6xl w-full max-h-[calc(100vh-6rem)] flex flex-col items-center">
+      
+      {/* Close Button */}
+      <button
+        className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full p-3 shadow-lg transition-all hover:scale-110 z-50 flex items-center justify-center"
+        onClick={() => setSelectedImage(null)}
+      >
+        <X size={24} className="text-gray-800 hover:text-green-600" />
+      </button>
+
+      {/* Image wrapper */}
+      <div className="relative w-full flex items-center justify-center">
+        <img
+          src={projectImages[selectedImage]}
+          alt={`Thaba View ${selectedImage + 1}`}
+          className="w-full h-auto max-h-[70vh] sm:max-h-[80vh] object-contain rounded-lg shadow-xl"
+        />
+
+        {/* Desktop Prev / Next Buttons */}
+        <button
+          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full p-3 shadow-lg transition-all hover:scale-110 z-50 hidden md:flex items-center justify-center"
+          onClick={handlePrevImage}
+        >
+          <ChevronLeft size={28} className="text-gray-800 hover:text-green-600" />
+        </button>
+        <button
+          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full p-3 shadow-lg transition-all hover:scale-110 z-50 hidden md:flex items-center justify-center"
+          onClick={handleNextImage}
+        >
+          <ChevronRight size={28} className="text-gray-800 hover:text-green-600" />
+        </button>
+      </div>
+
+      {/* Image Counter (Below image) */}
+      <div className="mt-3 bg-white bg-opacity-90 px-4 py-1.5 rounded-full shadow-md">
+        <p className="text-sm font-semibold text-gray-800">{selectedImage + 1} / {projectImages.length}</p>
+      </div>
+
+      {/* Mobile Prev / Next */}
+      <div className="flex md:hidden gap-4 justify-center mt-4">
+        <button
+          className="bg-white/90 backdrop-blur-sm rounded-full p-3 text-gray-800 hover:text-green-600 hover:bg-white transition-all shadow-lg"
+          onClick={handlePrevImage}
+        >
+          <ChevronLeft size={24} />
+        </button>
+        <button
+          className="bg-white/90 backdrop-blur-sm rounded-full p-3 text-gray-800 hover:text-green-600 hover:bg-white transition-all shadow-lg"
+          onClick={handleNextImage}
+        >
+          <ChevronRight size={24} />
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
     </section>
   );
 };
