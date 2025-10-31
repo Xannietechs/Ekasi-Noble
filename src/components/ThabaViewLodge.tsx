@@ -35,11 +35,19 @@ const whyUsPoints = [
 ];
 
 const projectImages = [
+<<<<<<< HEAD
   '/thaba1.jpeg',
   '/thaba2.jpeg',
   '/thaba3.jpeg',
   '/thaba4.jpeg',
   '/thaba5.jpeg'
+=======
+  '/thaba1.jpg',
+  '/thaba2.jpg',
+  '/thaba3.jpg',
+  '/thaba4.jpg',
+  '/thaba5.jpg'
+>>>>>>> e89bc2bb7270cb6a977a97e0f0d48b4c51f84ace
 ];
 
 const ThabaViewLodge: React.FC<ThabaViewLodgeProps> = ({ scrollToContact }) => {
@@ -286,6 +294,7 @@ const ThabaViewLodge: React.FC<ThabaViewLodgeProps> = ({ scrollToContact }) => {
       </div>
 
       {selectedImage !== null && (
+<<<<<<< HEAD
   <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-start justify-center p-4 pt-24">
     <div className="relative max-w-6xl w-full max-h-[calc(100vh-6rem)] flex flex-col items-center">
       
@@ -344,6 +353,59 @@ const ThabaViewLodge: React.FC<ThabaViewLodgeProps> = ({ scrollToContact }) => {
   </div>
 )}
 
+=======
+        <div className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center p-4">
+          <button
+            className="absolute top-4 right-4 bg-white rounded-full p-2 text-gray-800 hover:text-green-600 transition-colors z-10"
+            onClick={() => setSelectedImage(null)}
+          >
+            <X size={24} />
+          </button>
+
+          <button
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white rounded-full p-3 text-gray-800 hover:text-green-600 transition-colors z-10 hidden md:block"
+            onClick={handlePrevImage}
+          >
+            <ChevronLeft size={32} />
+          </button>
+
+          <button
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white rounded-full p-3 text-gray-800 hover:text-green-600 transition-colors z-10 hidden md:block"
+            onClick={handleNextImage}
+          >
+            <ChevronRight size={32} />
+          </button>
+
+          <div className="relative max-w-6xl w-full">
+            <img
+              src={projectImages[selectedImage]}
+              alt={`Thaba View ${selectedImage + 1}`}
+              className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+            />
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white bg-opacity-90 px-4 py-2 rounded-full">
+              <p className="text-sm font-semibold text-gray-800">
+                {selectedImage + 1} / {projectImages.length}
+              </p>
+            </div>
+
+            <div className="flex md:hidden gap-4 justify-center mt-4">
+              <button
+                className="bg-white rounded-full p-3 text-gray-800 hover:text-green-600 transition-colors"
+                onClick={handlePrevImage}
+              >
+                <ChevronLeft size={24} />
+              </button>
+              <button
+                className="bg-white rounded-full p-3 text-gray-800 hover:text-green-600 transition-colors"
+                onClick={handleNextImage}
+              >
+                <ChevronRight size={24} />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+>>>>>>> e89bc2bb7270cb6a977a97e0f0d48b4c51f84ace
     </section>
   );
 };
